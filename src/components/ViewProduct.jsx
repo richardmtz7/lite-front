@@ -103,7 +103,7 @@ const ViewProducts = () => {
         }
 
         try {
-            const response = await fetch(`${ENDPOINTS.BUSINESS_ORDER}/order/create`, {
+            const response = await fetch(`${ENDPOINTS.BUSINESS_ORDER}/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
