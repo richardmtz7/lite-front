@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://app-lite-business-64921b5b3bb9.herokuapp.com';
+const API_BASE_URL = 'https://app-lite-9d83943df582.herokuapp.com';
 
 export const ENDPOINTS = {
   AUTH: `${API_BASE_URL}/api/auth`,
