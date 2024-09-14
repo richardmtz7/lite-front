@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ENDPOINTS } from "../config/api";
 
 const CreateProduct = ({ onCreate }) => {
   const [productName, setProductName] = useState("");
@@ -10,13 +11,13 @@ const CreateProduct = ({ onCreate }) => {
   const [selectedCompany, setSelectedCompany] = useState("");
 
   const fetchCategories = async () => {
-    const response = await fetch("http://localhost:8081/api/business/category/getAll");
+    const response = await fetch(`${ENDPOINTS.BUSINESS_CATEGORY}/getAll`);
     const data = await response.json();
     setCategories(data);
   };
 
   const fetchCompanies = async () => {
-    const response = await fetch("http://localhost:8081/api/business/company/getAll");
+    const response = await fetch(`${ENDPOINTS.BUSINESS_COMPANY}/getAll`);
     const data = await response.json();
     setCompanies(data);
   };

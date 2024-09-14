@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ENDPOINTS } from "../config/api";
 import '../App.css';
 
 const Login = () => {
@@ -13,7 +14,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8082/api/auth/login', {
+      const response = await fetch(`${ENDPOINTS.AUTH}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

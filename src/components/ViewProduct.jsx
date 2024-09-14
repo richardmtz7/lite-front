@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
+import { ENDPOINTS } from "../config/api";
 import ReactToPrint from 'react-to-print';
 import '../App.css';
 
@@ -55,7 +56,7 @@ const ViewProducts = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch("http://localhost:8081/api/business/product/getAll");
+            const response = await fetch(`${ENDPOINTS.BUSINESS_PRODUCT}/getAll`);
             if (!response.ok) {
                 throw new Error("Error al obtener los productos");
             }
@@ -75,7 +76,7 @@ const ViewProducts = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8081/api/business/product/delete/${productId}`, {
+            const response = await fetch(`${ENDPOINTS.BUSINESS_PRODUCT}/delete/${productId}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -102,7 +103,7 @@ const ViewProducts = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:8081/api/business/order/create", {
+            const response = await fetch(`${ENDPOINTS.BUSINESS_ORDER}/order/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

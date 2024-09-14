@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ENDPOINTS } from "../config/api";
 import '../App.css';
 
 const Signup = () => {
@@ -19,7 +20,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8082/api/auth/sign-up', {
+      const response = await fetch(`${ENDPOINTS.AUTH}/sign-up`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

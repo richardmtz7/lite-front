@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { ENDPOINTS } from "../config/api";
 import '../App.css';
 
 const ViewCompanies = () => {
@@ -11,7 +12,7 @@ const ViewCompanies = () => {
 
     const fetchCompanies = async () => {
         try {
-            const response = await fetch("http://localhost:8081/api/business/company/getAll");
+            const response = await fetch(`${ENDPOINTS.BUSINESS_COMPANY}/getAll`);
             if (!response.ok) {
                 throw new Error("Error al obtener las empresas");
             }
@@ -26,7 +27,7 @@ const ViewCompanies = () => {
 
     const handleDeleteCompany = async (nit) => {
         try {
-            const response = await fetch(`http://localhost:8081/api/business/company/delete/${nit}`, {
+            const response = await fetch(`${ENDPOINTS.BUSINESS_COMPANY}/delete/${nit}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -53,7 +54,7 @@ const ViewCompanies = () => {
 
     const handleEditCompany = async () => {
         try {
-            const response = await fetch("http://localhost:8081/api/business/company/edit", {
+            const response = await fetch(`${ENDPOINTS.BUSINESS_COMPANY}/edit`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

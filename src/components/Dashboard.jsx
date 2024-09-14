@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import CreateProduct from "./Product";
 import CreateCompany from "./Company";
 import CreateCategory from "./Category";
+import { ENDPOINTS } from "../config/api";
 
 const Dashboard = () => {
   const [selectedAction, setSelectedAction] = useState("");
 
   const handleCreateProduct = async (newProduct) => {
     try {
-      const response = await fetch("http://localhost:8081/api/business/product/create", {
+      const response = await fetch(`${ENDPOINTS.BUSINESS_PRODUCT}/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -33,7 +34,7 @@ const Dashboard = () => {
 
   const handleCreateCompany = async (company) => {
     try {
-      const response = await fetch("http://localhost:8081/api/business/company/create", {
+      const response = await fetch(`${ENDPOINTS.BUSINESS_COMPANY}/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -61,7 +62,7 @@ const Dashboard = () => {
 
   const handleCreateCategory = async (categoryName) => {
     try {
-      const response = await fetch("http://localhost:8081/api/business/category/create", {
+      const response = await fetch(`${ENDPOINTS.BUSINESS_CATEGORY}/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
