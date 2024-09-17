@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import CreateProduct from "./Product";
 import CreateCompany from "./Company";
 import CreateCategory from "./Category";
@@ -7,6 +7,15 @@ import { ENDPOINTS } from "../config/api";
 
 const Dashboard = () => {
   const [selectedAction, setSelectedAction] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("role");
+    alert("Has cerrado sesión.");
+    navigate("/login");
+  };
 
   const handleCreateProduct = async (newProduct) => {
     try {
@@ -89,6 +98,7 @@ const Dashboard = () => {
       <div>
       <Link to="/view-products"><button>Ver Productos</button></Link>
       <Link to="/view-companies"><button>Ver Empresas</button></Link>
+      <button className="logout-button" onClick={handleLogout}>Logout</button>
       </div>
 
       {selectedAction === "product" && <CreateProduct onCreate={handleCreateProduct} />}
