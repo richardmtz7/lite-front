@@ -28,7 +28,7 @@ const ViewCompanies = () => {
     const handleDeleteCompany = async (nit) => {
         try {
             const response = await fetch(`${ENDPOINTS.BUSINESS_COMPANY}/delete/${nit}`, {
-                method: "PUT",
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
